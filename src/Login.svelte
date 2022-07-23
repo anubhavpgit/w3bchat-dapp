@@ -18,9 +18,9 @@
     });
   }
 </script>
-
-<label for="username">Username</label>
-<input name="username" bind:value={username} minlength="3" maxlength="16" type="email"/>
+<form on:submit|preventDefault={login}>
+  <label for="username">Username</label>
+<input name="username" bind:value={username} minlength="3" maxlength="16" type="text"/>
 
 <label for="password">Password</label>
 <input name="password" bind:value={password} type="password" />
@@ -28,3 +28,6 @@
 <button class="login" on:click={login}>Login</button>
 <button class="login"  on:click={signup}>Sign Up</button>
   
+
+</form>
+

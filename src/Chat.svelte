@@ -87,7 +87,7 @@
     </main>
 
     <form on:submit|preventDefault={sendMessage}>
-      <input type="text" placeholder="Type a message..." bind:value={newMessage} maxlength="100" />
+      <input type="text" placeholder="Type a message..." bind:value={newMessage} maxlength="1000" />
 
       <button type="submit" disabled={!newMessage}>🔥</button>
     </form>
