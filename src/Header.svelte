@@ -8,16 +8,16 @@
 
 </script>
 <header>
-	<h2>👻⚡️💀</h2>
+	<h4>👻⚡️💀</h4>
 	{#if $username}
 		<div class='user-bio'>
 			<div class='user-name'>Hello <strong>{$username}</strong></div>
-			<img src='{`https://avatars.dicebear.com/api/adventurer/${$username}.svg`}' alt='avatar'/>
+			<!-- <img src='{`https://avatars.dicebear.com/api/adventurer/${$username}.svg`}' alt='avatar'/> -->
 		</div>
 		<button class="signout-button" on:click={signout}>
 			Sign out
 		</button>
 		{:else}
-		<h3>W3BCHAT-Squbix</h3>
+		<h4>W3BCHAT-Squbix</h4>
 	{/if}
 </header>
