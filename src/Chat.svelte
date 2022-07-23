@@ -44,11 +44,11 @@
       .once(async (data, id) => {
         if (data) {
           // Key for end-to-end encryption
-          const key = '#foo';
+          const key = '#foo.awesomechat';
 
           var message = {
             // transform the data
-            who: db.user(data).get('alias'), // a user might lie who they are! So let the user system detect whose data it is.
+            who: await db.user(data).get('alias'), // a user might lie who they are! So let the user system detect whose data it is.
             what: (await SEA.decrypt(data.what, key)) + '', // force decrypt as text.
             when: GUN.state.is(data, 'what'), // get the internal timestamp for the what property.
           };
@@ -66,7 +66,7 @@
   });
 
   async function sendMessage() {
-    const secret = await SEA.encrypt(newMessage, '#foo');
+    const secret = await SEA.encrypt(newMessage, '#foo.awesomechat');
     const message = user.get('all').set({ what: secret });
     const index = new Date().toISOString();
     db.get('awesomechat').get(index).put(message);

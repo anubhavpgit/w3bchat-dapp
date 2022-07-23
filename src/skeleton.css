@@ -703,7 +703,7 @@ header {
     /* color: white; */
     position: fixed;
     width: 100%;
-    max-width: 728px;
+    max-width: 648px;
     top: 0;
     display: flex;
     padding-top: 20px;
