@@ -15,11 +15,11 @@
         "rollup-plugin-livereload": "^2.0.0",
         "rollup-plugin-svelte": "^7.0.0",
         "rollup-plugin-terser": "^7.0.0",
-        "svelte": "^3.0.0"
+        "svelte": "^5.25.5"
     },
     "dependencies": {
-        "firebase": "^9.9.0",
-        "firebase-tools": "^11.3.0",
+        "firebase": "^11.6.0",
+        "firebase-tools": "^14.0.1",
         "gun": "^0.2020.1237",
         "lodash.debounce": "^4.0.8",
         "lodash.throttle": "^4.1.1",
