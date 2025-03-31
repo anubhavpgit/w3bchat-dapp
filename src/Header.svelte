@@ -1,23 +1,37 @@
 <script>
-	import {username, user} from "./user";
+	import { username, user } from "./user";
 
-	function signout(){
-		user.leave();
-		username.set("");
+	function signout() {
+		try {
+			user.leave();
+			username.set("");
+		} catch (err) {
+			console.error("Signout error:", err);
+			// Force reset on error
+			localStorage.clear();
+			sessionStorage.clear();
+			window.location.reload();
+		}
 	}
 
+	// Updated DiceBear API URL
+	$: avatarUrl = $username
+		? `https://api.dicebear.com/6.x/adventurer/svg?seed=${encodeURIComponent($username)}`
+		: `https://api.dicebear.com/6.x/adventurer/svg?seed=guest`;
 </script>
+
 <header>
-	<h4>👻⚡️💀</h4>
+	<h4>Fireside</h4>
 	{#if $username}
-		<div class='user-bio'>
-			<div class='user-name'>Hello <strong>{$username}</strong></div>
-			<!-- <img src='{`https://avatars.dicebear.com/api/adventurer/${$username}.svg`}' alt='avatar'/> -->
+		<div class="user-bio">
+			<img src={avatarUrl} alt="avatar" />
+			<div class="user-name">Hello <strong>{$username}</strong></div>
+			<button class="signout-button" on:click={signout}>Sign out</button>
 		</div>
-		<button class="signout-button" on:click={signout}>
-			Sign out
-		</button>
-		{:else}
-		<h4>W3BCHAT-Squbix</h4>
+	{:else}
+		<div class="user-bio">
+			<img src={avatarUrl} alt="avatar" />
+			<div class="user-name">Hello <strong>Guest</strong></div>
+		</div>
 	{/if}
 </header>

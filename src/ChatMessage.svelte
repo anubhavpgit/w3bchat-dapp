@@ -2,18 +2,35 @@
   export let message;
   export let sender;
 
-  const messageClass = message.who === sender ? 'sent' : 'received';
+  // Add fallbacks for possible undefined values
+  $: messageClass = message?.who === sender ? "sent" : "received";
 
-  const avatar = `https://avatars.dicebear.com/api/adventurer/${message.who}.svg`;
+  // Updated DiceBear API URL - they changed their API format
+  $: avatar = message?.who
+    ? `https://api.dicebear.com/6.x/adventurer/svg?seed=${encodeURIComponent(message.who)}`
+    : `https://api.dicebear.com/6.x/adventurer/svg?seed=fallback`;
 
-  const ts = new Date(message.when);
+  // Handle invalid dates
+  $: formattedTime = (() => {
+    try {
+      const ts = new Date(message?.when || Date.now());
+      return ts.toLocaleTimeString();
+    } catch (e) {
+      return "(unknown time)";
+    }
+  })();
 </script>
 
 <div class={`message ${messageClass}`}>
-  <img src={avatar} alt="avatar" />
+  <img
+    src={avatar}
+    alt="avatar"
+    on:error={(e) =>
+      (e.target.src =
+        "https://api.dicebear.com/6.x/adventurer/svg?seed=fallback")}
+  />
   <div class="message-text">
-    <p>{message.what}</p>
-
-    <time>{ts.toLocaleTimeString()}</time>
+    <p>{message?.what || "Message unavailable"}</p>
+    <time>{formattedTime}</time>
   </div>
 </div>

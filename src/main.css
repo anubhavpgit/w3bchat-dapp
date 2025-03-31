@@ -1,254 +1,455 @@
-html,
-body {
-    position: relative;
-    width: 100%;
-    height: 100%;
+/* Base styles */
+:root {
+	--primary-color: #4a86e8;
+	--primary-light: #5d93eb;
+	--bg-color: #f8f9fa;
+	--message-sent: #0b93f6;
+	--message-received: #e5e5ea;
+	--border-color: #e5e5ea;
+	--radius-sm: 8px;
+	--radius-md: 16px;
+	--radius-lg: 25px;
+	--shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-body {
-    color: #333;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-    overflow: hidden;
-}
-
-a {
-    color: rgb(0, 100, 200);
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-a:visited {
-    color: rgb(0, 80, 160);
-}
-
-label {
-    display: block;
-}
-
-input,
-button,
-select,
-textarea {
-    font-family: inherit;
-    font-size: inherit;
-    -webkit-padding: 0.4em 0;
-    padding: 0.4em;
-    margin: 0 0 0.5em 0;
-    box-sizing: border-box;
-    border: 1px solid #ccc;
-    border-radius: 2px;
-}
-
-input:disabled {
-    color: #ccc;
-}
-
-body {
-    background-color: #282c34;
-}
-
-.app {
-    text-align: center;
-    max-width: 728px;
-    margin: 0 auto;
-}
-
-header {
-    background-color: #181717;
-    height: 10vh;
-    min-height: 50px;
-    color: white;
-    position: fixed;
-    width: 100%;
-    max-width: 728px;
-    top: 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    z-index: 99;
-    padding: 10px;
-    box-sizing: border-box;
-}
-
-.container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    min-height: 100vh;
-    background-color: rgb(40, 37, 53);
-}
-
-main {
-    height: 80vh;
-    overflow-y: scroll;
-    display: flex;
-    flex-direction: column;
-}
-
-main::-webkit-scrollbar {
-    width: 0.25rem;
-}
-
-main::-webkit-scrollbar-track {
-    background: #1e1e24;
-}
-
-main::-webkit-scrollbar-thumb {
-    background: #6649b8;
-}
-
-form {
-    height: 8vh;
-    position: fixed;
-    bottom: 0;
-    background-color: rgb(24, 23, 23);
-    width: 100%;
-    max-width: 728px;
-    display: flex;
-    font-size: 1.5rem;
-}
-
-form button {
-    width: 20%;
-    background-color: rgb(72, 207, 79);
-}
-
-input {
-    line-height: 1.5;
-    width: 100%;
-    font-size: 1.5rem;
-    background: rgb(58, 58, 58);
-    color: white;
-    outline: none;
-    border: none;
-    padding: 0 10px;
-    margin: 0;
-}
-
-button {
-    background-color: #282c34;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    cursor: pointer;
-    font-size: 1.25rem;
-    margin: 0;
-}
-
-button:hover,
-button:active {
-    filter: brightness(0.9);
-}
-
-button:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-}
-
-.login {
-    margin: 1rem 0 0;
-    background: #1a1520;
-}
-
-label {
-    color: white;
-    margin: 0.5rem 0;
-}
-
-ul,
-li {
-    text-align: left;
-    list-style: none;
-}
-
-p {
-    max-width: 500px;
-    margin-bottom: 0;
-    line-height: 24px;
-    padding: 10px 20px;
-    border-radius: 25px;
-    position: relative;
-    color: white;
-    text-align: center;
-}
-
-.message {
-    display: flex;
-    align-items: center;
-    margin: 0;
-    word-wrap: break-word;
-}
-
-.sent {
-    flex-direction: row-reverse;
-}
-
-.sent p {
-    color: white;
-    background: #0b93f6;
-    align-self: flex-end;
-    text-align: right;
-}
-
-.received p {
-    background: #e5e5ea;
-    color: black;
-    text-align: left;
-}
-
-.message-text {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-}
-
-.received .message-text {
-    align-items: flex-start;
-}
-
-time {
-    color: white;
-    font-size: 0.7rem;
-    color: #9a9a9a;
-    margin: 0 1rem;
-}
-
-img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin: 2px 5px;
-}
-
-.message:last-child {
-    margin-bottom: 20px;
-}
-
-.user-bio {
-    display: flex;
-    align-items: center;
-}
-
-.scroll-button {
-    position: fixed;
-    bottom: 70px;
-    right: 20px;
-    color: white;
-}
-
-.red {
-    background: rgb(204, 53, 37);
+:root {
+	--danger-color: #e74c3c;
+	--danger-hover: #c0392b;
+	--text-color: #fff;
+	--spacing-sm: 8px;
+	--spacing-md: 12px;
+	--radius-sm: 6px;
+	--transition-speed: 0.2s;
 }
 
 .signout-button {
-    font-size: 0.8rem;
-    padding: 0.5rem 1rem;
+	/* Background and colors */
+	background-color: var(--danger-color);
+	color: var(--text-color);
+
+	/* Border styling */
+	border: none;
+	border-radius: var(--radius-sm);
+
+	/* Spacing */
+	padding: var(--spacing-sm) var(--spacing-md);
+	margin: var(--spacing-sm);
+
+	/* Typography */
+	font-size: 14px;
+	font-weight: 500;
+
+	/* Interaction */
+	cursor: pointer;
+	transition: background-color var(--transition-speed) ease,
+		transform var(--transition-speed) ease;
+
+	/* Additional styles */
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 80px;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.signout-button:hover {
+	background-color: var(--danger-hover);
+	transform: translateY(-1px);
+}
+
+.signout-button:active {
+	transform: translateY(0);
+}
+
+/* Add these to the top of your CSS file */
+html,
+body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	overflow: hidden;
+	box-sizing: border-box;
+	background-color: #f0f2f5;
+}
+
+/* Adjust the app container */
+.app {
+	text-align: center;
+	max-width: 728px;
+	height: 100vh;
+	/* Full viewport height */
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	background-color: var(--bg-color);
+	box-shadow: var(--shadow);
+	border-radius: var(--radius-md);
+	overflow: hidden;
+	/* Prevent any overflow */
+	position: relative;
+	/* Ensure positioning context */
+}
+
+/* Fix the container sizing */
+.container {
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+	width: 100%;
+	position: relative;
+	background-color: var(--bg-color);
+	overflow: hidden;
+	/* Prevent overflow */
+}
+
+/* Make the main scrollable area properly sized */
+main {
+	flex: 1;
+	overflow-y: auto;
+	padding: 20px;
+	padding-bottom: 80px;
+	/* Make room for the form */
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+	height: calc(100% - 70px);
+	/* Account for the form height */
+}
+
+/* Header styling - fixed issue #1 */
+header {
+	background-color: #fff;
+	height: 60px;
+	min-height: 50px;
+	position: sticky;
+	top: 0;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0 20px;
+	box-sizing: border-box;
+	border-bottom: 1px solid var(--border-color);
+	z-index: 99;
+}
+
+/* User bio with horizontal layout */
+.user-bio {
+	display: flex;
+	align-items: center;
+	flex-direction: row;
+	/* Changed from column to row */
+	margin: 0;
+	gap: 10px;
+}
+
+.user-name {
+	font-size: 14px;
+}
+
+
+/* Container for chat */
+.container {
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+	width: 100%;
+	height: calc(100vh - 60px);
+	/* Subtract header height */
+	position: relative;
+	background-color: var(--bg-color);
+	border-radius: var(--radius-md);
+}
+
+/* Main chat area */
+main {
+	flex: 1;
+	overflow-y: auto;
+	padding: 20px;
+	padding-bottom: 80px;
+	/* Make room for the form */
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+	scroll-behavior: smooth;
+}
+
+
+.message-input {
+	margin-bottom: 0 !important;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 70px;
+	background-color: white;
+	padding: 10px 20px;
+	display: flex;
+	gap: 10px;
+	box-sizing: border-box;
+	box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+	z-index: 5;
+	border-top: 1px solid var(--border-color);
+}
+
+/* Message input */
+input {
+	flex: 1;
+	height: 50px;
+	line-height: 1.5;
+	font-size: 16px;
+	padding: 0 16px;
+	border-radius: var(--radius-lg);
+	border: 1px solid var(--border-color);
+	background-color: var(--bg-color);
+	margin: 0;
+	outline: none;
+	transition: all 0.2s ease;
+}
+
+input:focus {
+	border-color: var(--primary-color);
+	box-shadow: 0 0 0 2px rgba(74, 134, 232, 0.2);
+}
+
+/* Send button */
+form button {
+	width: 50px;
+	height: 50px;
+	border-radius: 25px;
+	/* background-color: var(--danger-color); */
+	color: white;
+	border: none;
+	font-size: 18px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: all 0.2s ease;
+	padding: 0;
+}
+
+form button:hover {
+	background-color: var(--primary-light);
+}
+
+form button:disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+}
+
+/* Message styling */
+.message {
+	display: flex;
+	align-items: flex-end;
+	margin: 8px 0;
+	word-wrap: break-word;
+	max-width: 80%;
+}
+
+.sent {
+	flex-direction: row-reverse;
+	align-self: flex-end;
+}
+
+.received {
+	align-self: flex-start;
+}
+
+/* Avatar images */
+img {
+	width: 36px;
+	height: 36px;
+	border-radius: 50%;
+	margin: 0 5px;
+	object-fit: cover;
+	border: 2px solid white;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Message text container */
+.message-text {
+	display: flex;
+	flex-direction: column;
+	max-width: calc(100% - 50px);
+}
+
+.sent .message-text {
+	align-items: flex-end;
+}
+
+.received .message-text {
+	align-items: flex-start;
+}
+
+/* Message bubbles */
+p {
+	max-width: 100%;
+	margin: 0;
+	line-height: 24px;
+	padding: 10px 16px;
+	border-radius: 18px;
+	position: relative;
+	color: black;
+	text-align: left;
+	word-break: break-word;
+}
+
+.sent p {
+	color: white;
+	background: var(--message-sent);
+	border-top-right-radius: 4px;
+}
+
+.received p {
+	background: var(--message-received);
+	border-top-left-radius: 4px;
+}
+
+/* Timestamp */
+time {
+	font-size: 11px;
+	color: #9a9a9a;
+	margin: 4px 8px;
+}
+
+/* Scroll button */
+.scroll-button {
+	position: fixed;
+	bottom: 80px;
+	right: 20px;
+	z-index: 10;
+}
+
+.scroll-button button {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background-color: white;
+	border: 1px solid var(--border-color);
+	box-shadow: var(--shadow);
+	color: #555;
+	cursor: pointer;
+}
+
+.scroll-button button.red {
+	background-color: #e74c3c;
+	color: white;
+	border: none;
+}
+
+/* Login form */
+
+
+.login-form {
+	background-color: white;
+	padding: 30px;
+	border-radius: 16px;
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+	max-width: 320px;
+	width: 100%;
+	margin: auto;
+}
+
+/* Fix the label styling */
+.login-form label {
+	display: block;
+	color: #333;
+	margin-bottom: 8px;
+	font-weight: 500;
+	text-align: left;
+}
+
+/* Fix input styling */
+.login-form input {
+	width: 100%;
+	padding: 12px;
+	margin-bottom: 20px;
+	border: 1px solid #e5e5ea;
+	border-radius: 8px;
+	font-size: 14px;
+	background-color: #f9f9fb;
+}
+
+.login-form input:focus {
+	outline: none;
+	border-color: #4a86e8;
+	box-shadow: 0 0 0 2px rgba(74, 134, 232, 0.2);
+}
+
+/* Button group styling */
+.button-group {
+	display: flex;
+	gap: 10px;
+	margin-top: 10px;
+	/* Remove any list-style that might be causing the circles */
+	list-style: none;
+	padding: 0;
+}
+
+/* Clear button styling */
+.login-form button {
+	flex: 1;
+	background-color: #4a86e8;
+	color: white;
+	border: none;
+	border-radius: 8px;
+	font-size: 14px;
+	font-weight: 500;
+	cursor: pointer;
+	transition: all 0.2s ease;
+	/* Remove any bullet points or decorations */
+	display: inline-block;
+	text-decoration: none;
+	appearance: none;
+	-webkit-appearance: none;
+	position: relative;
+}
+
+.login-form button:hover {
+	background-color: #3a76d8;
+}
+
+.login-form button:disabled {
+	background-color: #ccc;
+	cursor: not-allowed;
+	opacity: 0.7;
+}
+
+/* Error message styling */
+.error-message {
+	color: #e74c3c;
+	background-color: rgba(231, 76, 60, 0.1);
+	padding: 12px;
+	border-radius: 8px;
+	margin-bottom: 20px;
+	font-size: 14px;
+	text-align: center;
+}
+
+/* Empty state */
+.empty-state {
+	text-align: center;
+	color: #888;
+	padding: 40px 0;
+	font-style: italic;
+}
+
+/* Scrollbar styling */
+main::-webkit-scrollbar {
+	width: 6px;
+}
+
+main::-webkit-scrollbar-track {
+	background: #f1f1f1;
+	border-radius: 10px;
+}
+
+main::-webkit-scrollbar-thumb {
+	background: #ccc;
+	border-radius: 10px;
+}
+
+main::-webkit-scrollbar-thumb:hover {
+	background: #aaa;
 }
