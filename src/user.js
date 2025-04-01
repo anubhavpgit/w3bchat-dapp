@@ -7,7 +7,6 @@ import { writable } from 'svelte/store';
 // Using multiple peers improves reliability and connection stability
 export const db = GUN([
     'https://gun-manhattan.herokuapp.com/gun',
-    'https://gun-us.herokuapp.com/gun'
 ]);
 
 // Gun User with improved session handling
