@@ -5,7 +5,7 @@
   // Add fallbacks for possible undefined values
   $: messageClass = message?.who === sender ? "sent" : "received";
 
-  // Updated DiceBear API URL - they changed their API format
+  // Updated DiceBear API URL
   $: avatar = message?.who
     ? `https://api.dicebear.com/6.x/adventurer/svg?seed=${encodeURIComponent(message.who)}`
     : `https://api.dicebear.com/6.x/adventurer/svg?seed=fallback`;

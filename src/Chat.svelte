@@ -52,10 +52,10 @@
 
         try {
           // Key for end-to-end encryption
-          const key = "#foo.awesomechat";
+          const key = "#anubhav.awesomechat.fireball";
 
           // Get user info and decrypt message
-          const who = (await db.user(data).get("alias")) || "Unknown";
+          const who = db.user(data).get("alias") || "Unknown";
           let what = "";
 
           try {

@@ -239,21 +239,50 @@ form button:disabled {
 }
 
 /* Message styling */
+/* Update the message alignment */
 .message {
 	display: flex;
-	align-items: flex-end;
+	align-items: flex-start;
+	/* Change from center to flex-start */
 	margin: 8px 0;
 	word-wrap: break-word;
-	max-width: 80%;
+}
+
+/* Add specific styling for the avatar */
+.message img {
+	width: 36px;
+	height: 36px;
+	border-radius: 50%;
+	margin: 0 8px;
+	/* Push the avatar up with margin-top */
+	margin-top: 8px;
+	/* Adjust this value as needed */
+}
+
+/* If you want different positioning for sent vs received */
+.sent img {
+	margin-top: 8px;
+	/* Fine-tune this value */
+}
+
+.received img {
+	margin-top: 8px;
+	/* Fine-tune this value */
 }
 
 .sent {
 	flex-direction: row-reverse;
 	align-self: flex-end;
+	margin-left: auto;
+	/* Push sent messages to the right */
+	max-width: 80%;
 }
 
 .received {
 	align-self: flex-start;
+	margin-right: auto;
+	/* Push received messages to the left */
+	max-width: 80%;
 }
 
 /* Avatar images */
@@ -261,9 +290,10 @@ img {
 	width: 36px;
 	height: 36px;
 	border-radius: 50%;
-	margin: 0 5px;
+	margin: 0 8px;
+	flex-shrink: 0;
+	/* Prevent avatar from shrinking */
 	object-fit: cover;
-	border: 2px solid white;
 	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
@@ -271,7 +301,8 @@ img {
 .message-text {
 	display: flex;
 	flex-direction: column;
-	max-width: calc(100% - 50px);
+	max-width: calc(100% - 52px);
+	/* Account for avatar width and margin */
 }
 
 .sent .message-text {
@@ -284,26 +315,30 @@ img {
 
 /* Message bubbles */
 p {
-	max-width: 100%;
 	margin: 0;
-	line-height: 24px;
+	line-height: 1.4;
 	padding: 10px 16px;
 	border-radius: 18px;
-	position: relative;
-	color: black;
-	text-align: left;
 	word-break: break-word;
 }
 
 .sent p {
 	color: white;
-	background: var(--message-sent);
+	background: #0b93f6;
 	border-top-right-radius: 4px;
 }
 
 .received p {
-	background: var(--message-received);
+	background: #e5e5ea;
+	color: black;
 	border-top-left-radius: 4px;
+}
+
+/* Timestamp */
+time {
+	font-size: 11px;
+	color: #9a9a9a;
+	margin: 4px 8px;
 }
 
 /* Timestamp */
