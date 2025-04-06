@@ -1,5 +1,9 @@
 # W3bchat is a decentralized cvhat application that mimics the working of web3 in real life!
 
+# DEPRECATED
+### Moved to [fireside](https://github.com/anubhavpgit/fireside)
+
+
 ---
 
 # svelte app
